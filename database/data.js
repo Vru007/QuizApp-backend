@@ -41,68 +41,68 @@ const ques=[
     },
     {
         id:5,
-        question:" Which of the following data type is supported in C++ but not in C?",
+        question:" Identify the correct syntax for declaring arrays in C++.",
         options:[
-            "String",
-            "Double",
-            "Bool",
-            "Float"
+            "array arr[10]",
+            "array{10}",
+            "int array[10]",
+            "int arr"
         ]
     },
     {
         id:6,
-        question:" Which of the following data type is supported in C++ but not in C?",
+        question:" Size of wchat_t is.",
         options:[
-            "String",
-            "Double",
-            "Bool",
-            "Float"
+            "2",
+            "4",
+            "2 or 4",
+            "Depends on number of bits in system"
         ]
     },
     
     {
         id:7,
-        question:" Which of the following data type is supported in C++ but not in C?",
+        question:"Identify the correct example for a pre-increment operator.",
         options:[
-            "String",
-            "Double",
-            "Bool",
-            "Float"
+            "++n",
+            "n++",
+            "--n",
+            "+n"
         ]
     },
     {
         id:8,
-        question:" Which of the following data type is supported in C++ but not in C?",
+        question:"Which of the following loops is best when we know the number of iterations?",
         options:[
-            "String",
-            "Double",
-            "Bool",
-            "Float"
+            "while loop",
+            "Do while loop",
+            "for loop",
+            "All of the above"
         ]
     },
     {
         id:9,
-        question:" Which of the following data type is supported in C++ but not in C?",
+        question:" By which of the following can the if-else statement be replaced",
         options:[
-            "String",
-            "Double",
-            "Bool",
-            "Float"
+            "Bitwise",
+            "Logical",
+            "Conditional",
+            "Arithmetic"
         ]
     },
     {
         id:10,
-        question:" Identify the incorrect constructor type.",
+        question:" Choose the correct default return value of function..",
         options:[
-            "last question",
-            "last question",
-            "last question",
-            "last question",
+            "int",
+            "void",
+            "char",
+            "bool",
         ]
     },
 ]
 
-const ans=[1,0,1,2,3,1,0,3,2,1];
+const ans=[2,0,3,1,3,1,0,3,2,1];
 module.exports = {
     ques,
     ans

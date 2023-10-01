@@ -47,10 +47,10 @@ catch(err){
 }
 }
 function postResult(req,res){
-    const {username,result, attempts,points,achieved}=req.body;
+    const {username,result, attempts,points,achived}=req.body;
      if(!result && !username) throw new Error('Data not provided');
 
-    Results.create({username,result,attempts,points,achieved})
+    Results.create({username,result,attempts,points,achived})
     .then(function(){
         console.log("result saved successfully");
     })

@@ -5,6 +5,7 @@ const dotenv = require("dotenv").config();
 const bodyParser = require("body-parser")
 const router = require("./router/route.js");
 const connect = require("./database/connect.js");
+const { MongoClient } = require('mongodb');
 /* Middlewares */
 
 app.use(cors());
@@ -13,8 +14,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 /* App Port */
 const port=process.env.PORT ||8000;
-
-connect();
+const uri=process.env.URI
+const client = new MongoClient(uri);
+// connect();
 
 /* Routes */
 app.use('/api',router)
@@ -30,6 +32,10 @@ catch(err){
 })
 
 
-app.listen(port,()=>{
-    console.log(`Server is running on port ${port}`);
-})
+client.connect(err => {
+    if(err){ console.error(err); return false;}
+    // connection to mongo is successful, listen for requests
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+});

@@ -102,7 +102,7 @@ const ques=[
     },
 ]
 
-const ans=[2,0,3,1,3,1,0,3,2,1];
+const ans=[2,0,0,2,2,3,0,2,2,0];
 module.exports = {
     ques,
     ans

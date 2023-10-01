@@ -1,4 +1,5 @@
 const express=require('express');
+const mongoose = require('mongoose')
 const cors=require('cors');
 const app=express();
 const dotenv = require("dotenv").config();
@@ -13,10 +14,19 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 /* App Port */
-const port=process.env.PORT ||8000;
-const uri=process.env.URI
-const client = new MongoClient(uri);
+const port=process.env.PORT ||8000
+// const uri=process.env.URI
 // connect();
+    
+const connectDB = async () => {
+    try {
+      const conn = mongoose.connect(process.env.URI, { useNewUrlParser: true, useUnifiedTopology: true });
+      console.log("database connected");
+    } catch (error) {
+      console.log(error);
+      process.exit(1);
+    }
+  }
 
 /* Routes */
 app.use('/api',router)
@@ -32,10 +42,8 @@ catch(err){
 })
 
 
-client.connect(err => {
-    if(err){ console.error(err); return false;}
-    // connection to mongo is successful, listen for requests
-    app.listen(PORT, () => {
+connectDB().then(() => {
+    app.listen(port, () => {
         console.log("listening for requests");
     })
-});
+})
